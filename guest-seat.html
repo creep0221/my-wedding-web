@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+		body {
+			background-image: url("istockphoto-866754590-170667a.jpg");
+			background-repeat: repeat;
+		}
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .content {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .navbar a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+        div {font-family:Calibri; color: #0055ff}
+        h1 {color: #ccffff}
+    </style>
+    <script>
+        var groomRelatives = new Array();
+        groomRelatives[0] = ["2桌", "饒瑞凡 一家"];
+        groomRelatives[1] = ["3桌", "廖錡增 一家", "楊壁任 一家"];
+        groomRelatives[2] = ["4桌", "饒碧招", " 鍾秝如", "饒柚招"];
+        groomRelatives[3] = ["饒豐招", "王微寧", "瑞軍"];
+
+        var groomClassmates = new Array();
+        groomClassmates[0] = ["鼠哥", "張翰青大帥哥", "黃定凡", "林大閔", "陳昊"];
+        groomClassmates[1] = ["李佳欣", "洪佑銘", "QK Su", "劉信成"];
+
+        var groomColleague = new Array();
+        groomColleague[0] = ["Jack Mo", "Atom Lin ", "Kevin Yeo", "Ray", "Vickie Chen", "Erik Wang", "蔡伃修", "許哲彰 （Kye)"];
+
+        var groomOthers = new Array();
+
+        var brideRelative = new Array();
+        brideRelative[0] = ["5桌", "二舅舅", "小舅媽", "陳昭明", "陳怡君", "陳怡菁", "陳怡鈺", "魏孝璇", "郭嘉麒(77)"];
+        brideRelative[1] = ["二阿爸", "志宏叔叔", "錦芳叔公", "政光叔公", "魏英龍"];
+
+        var brideClassmate = new Array();
+        brideClassmate[0] = ["盧妍安", "陳淑宜", "黎綾", "王瑋婕 ", "鄭又漩", "邱映慈", "陳慧華"];
+        brideClassmate[1] = ["王緻秦", "徐琬婷", "廖乃功", "林祐銓", "張欣瑜"];
+        brideClassmate[2] = ["王宇澄", "楊雅涵", "楊文菱", "陳偉傑", "陳國勇", "朱珮瑜"];
+
+        var brideColleague = new Array();
+        brideColleague[0] = ["翁雅琇", "謝秀蓮", "李淑真", "曹毓雪", "鍾明達", "黃詠鎮"];
+
+        //alert(divContent.innerHTML);
+        function OnSelected(group) {
+            var radioBrideGroom = document.getElementsByName('brideGroom');
+            var radioRelation = document.getElementsByName('relation');
+
+            if (!IsBothChecked(radioBrideGroom, radioRelation)) {
+                console.log('Not both checked');
+                return;
+            }
+
+            var divContent = document.getElementById("div_content");
+
+            if (radioBrideGroom[0].checked && radioRelation[0].checked) {
+                //divContent.innerHTML = '新郎 親戚';
+                GenerateSeats(0, 0);
+            }
+            else if (radioBrideGroom[0].checked && radioRelation[1].checked) {
+                GenerateSeats(0, 1);
+            }
+            else if (radioBrideGroom[0].checked && radioRelation[2].checked) {
+                GenerateSeats(0, 2);
+            }
+            else if (radioBrideGroom[0].checked && group == 4) {
+                divContent.innerHTML = '新郎 其他';
+            }
+            else if (radioBrideGroom[1].checked && radioRelation[0].checked) {
+                GenerateSeats(1, 0);
+            }
+            else if (radioBrideGroom[1].checked && radioRelation[1].checked) {
+                GenerateSeats(1, 1);
+            }
+            else if (radioBrideGroom[1].checked && radioRelation[2].checked) {
+                GenerateSeats(1, 2);
+            }
+            else {
+                alert('error');
+            }
+        }
+
+        function IsBothChecked(brideGroom, relation) {
+            var isCheckedA = false;
+            for (var i = 0; i < brideGroom.length; i++) {
+                if (brideGroom[i].checked) {
+                    isCheckedA = true;
+                    break;
+                }
+            }
+
+            var isCheckedB = false;
+            for (var i = 0; i < relation.length; i++) {
+                if (relation[i].checked) {
+                    isCheckedB = true;
+                    break;
+                }
+            }
+
+            return isCheckedA && isCheckedB;
+        }
+
+        function GenerateSeats(brideGroom, relation) {
+            var divContent = document.getElementById("div_content");
+            divContent.innerHTML='';
+            var arr = new Array();
+            if (brideGroom == 0 && relation == 0)
+                arr = groomRelatives;
+            else if (brideGroom == 0 && relation == 1)
+                arr = groomColleague;
+            else if (brideGroom == 0 && relation == 2)
+                arr = groomClassmates;
+            else if (brideGroom == 1 && relation == 0)
+                arr = brideRelative;
+            else if (brideGroom == 1 && relation == 1)
+                arr = brideColleague;
+            else if (brideGroom == 1 && relation == 2)
+                arr = brideClassmate;
+            //alert(arr[2].length);
+
+            for (var i = 0; i < arr.length; i++) {
+                var guests = '';
+                var newDiv = document.createElement("div");
+                divContent.appendChild(newDiv);
+                for (var j = 0; j < arr[i].length; j++) {
+                    var newSubDiv = document.createElement("div");
+                    var newContent = document.createTextNode(arr[i][j]);
+                    newSubDiv.appendChild(newContent);
+                    newDiv.appendChild(newSubDiv);
+                    // var newDiv = document.createElement("div");
+                    // var newContent = document.createTextNode(arr[i][j]);
+                    // newDiv.appendChild(newContent);
+                    // divContent.appendChild(newDiv);
+                }
+                //divContent.appendChild(newDiv);
+            }
+            //alert(guests);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Welcome to our Wedding</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="content">
+        <h2>Welcome to our wedding! 請問您認識？</h2>
+        <label for="option1">新郎 (Groom):</label>
+        <input type="radio" id="radio_groom" name="brideGroom" value="groom" onChange="OnSelected();">
+
+        <label for="option2">新娘 (Bride):</label>
+        <input type="radio" id="radio_bride" name="brideGroom" value="bride" onChange="OnSelected();">
+        <br />
+        <h3>您是什麼關係呢？</h3>
+        <label for="option1">親戚:</label>
+        <input type="radio" id="radio_relatives" name="relation" value="groom" onChange="OnSelected();">
+
+        <label for="option2">同事:</label>
+        <input type="radio" id="radio_colleague" name="relation" value="bride" onChange="OnSelected();">
+
+        <label for="option2">同學:</label>
+        <input type="radio" id="radio_classmate" name="relation" value="bride" onChange="OnSelected();">
+        <p>This webpage is responsive, meaning it adjusts its layout depending on the size of the screen it is viewed
+            on.</p>
+        <p>Try resizing your browser window to see how it works.</p>
+
+        <div id="div_content" style="display: flex; flex-wrap: wrap; justify-content: center;">
+
+
+        </div>
+    </div>
+
+    <!-- <div class="footer">
+        <p>Copyright © 2023 My Company</p>
+    </div> -->
+</body>
+
+</html>
