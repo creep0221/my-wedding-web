@@ -80,10 +80,17 @@
 
         .dynamic-div {
             background-color: #f1f1f1;
-            padding: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
+            padding: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+            
             border: 1px solid #ccc;
+        }
+
+        .dynamic-div-border {
+            
+            padding: 5px;
+            margin-bottom: 5px;
         }
     </style>
     <script>
@@ -112,14 +119,14 @@
         brideRelative[3] = ["9桌", "魏啟恩 四位"];
 
         var brideClassmate = new Array();
-        brideClassmate[0] = ["10桌", "盧妍安", "陳淑宜", "黎綾", "王瑋婕 ", "鄭又漩", "邱映慈", "陳慧華", "Tiffany", "邱蘭婷", "周盈汝"];
+        brideClassmate[0] = ["10桌", "盧妍安", "陳淑宜", "王瑋婕 ", "鄭又漩", "邱映慈", "陳慧華", "Tiffany", "邱蘭婷", "周盈汝"];
         brideClassmate[1] = ["11桌", "王宇澄", "楊雅涵 兩位", "楊文菱 兩位", "陳偉傑", "陳國勇", "朱珮瑜 兩位"];
         brideClassmate[2] = ["12桌", "王緻秦 三位", "徐琬婷 四位", "廖乃功 兩位", "林祐銓", "張欣瑜"];
         
 
         var brideColleague = new Array();
         brideColleague[0] = ["4桌", "翁雅琇 兩位", "謝秀蓮", "李淑真", "曹毓雪", "鍾明達", "黃詠鎮"];
-        brideColleague[0] = ["9桌", "羅惠美", "江佩珊", "吳芳瑜 兩位"];
+        brideColleague[1] = ["9桌", "羅惠美", "江佩珊", "吳芳瑜 兩位"];
 
         //alert(divContent.innerHTML);
         function OnSelected(group) {
@@ -203,6 +210,7 @@
             for (var i = 0; i < arr.length; i++) {
                 var guests = '';
                 var newDiv = document.createElement("div");
+                newDiv.classList.add('dynamic-div-border');
                 divContent.appendChild(newDiv);
                 for (var j = 0; j < arr[i].length; j++) {
                     var newSubDiv = document.createElement("div");
