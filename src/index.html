@@ -9,10 +9,12 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
-		body {
-			background-image: url("istockphoto-866754590-170667a.jpg");
-			background-repeat: repeat;
-		}
+
+        body {
+            background-image: url("istockphoto-866754590-170667a.jpg");
+            background-repeat: repeat;
+        }
+
         .header {
             background-color: #333;
             color: #fff;
@@ -62,36 +64,62 @@
                 text-align: left;
             }
         }
-        div {font-family:Calibri; color: #0055ff}
-        h1 {color: #ccffff}
+
+        div {
+            font-family: Calibri;
+            color: #0073e6
+        }
+
+        h1 {
+            color: #ccffff
+        }
+
+        input[type="radio"] {
+            margin-right: 20px;
+        }
+
+        .dynamic-div {
+            background-color: #f1f1f1;
+            padding: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+        }
     </style>
     <script>
         var groomRelatives = new Array();
-        groomRelatives[0] = ["3桌", "廖錡增 一家", "楊壁任 一家", "饒瑞軍 一家"];
-        groomRelatives[1] = ["5桌", "饒瑞凡 一家", "陳清雲 一家", "王微寧 一家"];
-        groomRelatives[2] = ["7桌", "饒碧招 一家", " 鍾秝如 一家", "饒柚招 一家", "饒豐招"];
-        groomRelatives[3] = ["9桌", "傅淑瑋 一家"];
+        groomRelatives[0] = ["3桌", "廖錡增 六位", "楊壁任 兩位", "饒瑞軍 兩位"];
+        groomRelatives[1] = ["5桌", "饒瑞凡 四位", "陳清雲 兩位", "王微寧 四位"];
+        groomRelatives[2] = ["7桌", "饒碧招 兩位", " 鍾秝如 三位", "饒柚招 三位", "饒豐招"];
+        groomRelatives[3] = ["9桌", "傅淑瑋 兩位"];
 
         var groomClassmates = new Array();
-        groomClassmates[0] = ["13桌","鼠哥", "張翰青大帥哥", "黃定凡", "林大閔", "陳昊"];
-        groomClassmates[1] = ["11桌","李佳欣", "洪佑銘", "QK Su", "劉信成"];
+        groomClassmates[0] = ["13桌", "陳伯宣 兩位", "張翰青 兩位", "邱奕昕 兩位", "林大閔", "張雅婷", "童志偉"];
+        groomClassmates[1] = ["15桌", "黃定凡 兩位", "洪佑銘 兩位", "蘇秩增 兩位", "劉信成 三位", "陳昊"];
+        groomClassmates[2] = ["17桌", "陳竑一", "張家齊 三位", "李佳欣", "葉明瑜 兩位", "賴錦德 兩位"];
 
         var groomColleague = new Array();
-        groomColleague[0] = ["11桌","Jack Mo", "Atom Lin ", "Kevin Yeo", "Ray", "Vickie Chen", "Erik Wang", "蔡伃修", "許哲彰 （Kye)"];
+        groomColleague[0] = ["4桌", "Yowko", "鄭家鱗", "李孟哲"];
+        groomColleague[1] = ["14桌", "Kevin Yeo", "Jack Mo", "Atom Lin ", "Ray", "Vickie Chen", "Erik Wang", "蔡伃修", "許哲彰", "蕭怡寧"];
 
         var groomOthers = new Array();
+        groomOthers[0] = ["16桌", "許世虎", "曹淑琴", "尤宥潔", "陳彥俊 兩位", "凌建中", "江德煌", "廖運福 兩位", "趙祥煌"];
 
         var brideRelative = new Array();
-        brideRelative[0] = ["5桌", "二舅舅", "小舅媽", "陳昭明", "陳怡君", "陳怡菁", "陳怡鈺", "魏孝璇", "郭嘉麒(77)"];
-        brideRelative[1] = ["二阿爸", "志宏叔叔", "錦芳叔公", "政光叔公", "魏英龍"];
+        brideRelative[0] = ["2桌", "大舅媽", "小舅媽", "陳昭明", "陳怡君", "陳怡菁", "陳怡鈺", "魏孝璇", "郭嘉麒(77)"];
+        brideRelative[1] = ["6桌", "魏憲章 兩位", "魏志宏叔叔 兩位", "魏錦芳叔公 兩位", "魏政光叔公 兩位", "魏英龍 兩位"];
+        brideRelative[2] = ["8桌", "魏信梅", "魏程緯 四位", "魏兆奎 兩位", "魏一凡 兩位"];
+        brideRelative[3] = ["9桌", "魏啟恩 四位"];
 
         var brideClassmate = new Array();
-        brideClassmate[0] = ["盧妍安", "陳淑宜", "黎綾", "王瑋婕 ", "鄭又漩", "邱映慈", "陳慧華"];
-        brideClassmate[1] = ["王緻秦", "徐琬婷", "廖乃功", "林祐銓", "張欣瑜"];
-        brideClassmate[2] = ["王宇澄", "楊雅涵", "楊文菱", "陳偉傑", "陳國勇", "朱珮瑜"];
+        brideClassmate[0] = ["10桌", "盧妍安", "陳淑宜", "黎綾", "王瑋婕 ", "鄭又漩", "邱映慈", "陳慧華", "Tiffany", "邱蘭婷", "周盈汝"];
+        brideClassmate[1] = ["11桌", "王宇澄", "楊雅涵 兩位", "楊文菱 兩位", "陳偉傑", "陳國勇", "朱珮瑜 兩位"];
+        brideClassmate[2] = ["12桌", "王緻秦 三位", "徐琬婷 四位", "廖乃功 兩位", "林祐銓", "張欣瑜"];
+        
 
         var brideColleague = new Array();
-        brideColleague[0] = ["翁雅琇", "謝秀蓮", "李淑真", "曹毓雪", "鍾明達", "黃詠鎮"];
+        brideColleague[0] = ["4桌", "翁雅琇 兩位", "謝秀蓮", "李淑真", "曹毓雪", "鍾明達", "黃詠鎮"];
+        brideColleague[0] = ["9桌", "羅惠美", "江佩珊", "吳芳瑜 兩位"];
 
         //alert(divContent.innerHTML);
         function OnSelected(group) {
@@ -115,8 +143,8 @@
             else if (radioBrideGroom[0].checked && radioRelation[2].checked) {
                 GenerateSeats(0, 2);
             }
-            else if (radioBrideGroom[0].checked && group == 4) {
-                divContent.innerHTML = '新郎 其他';
+            else if (radioBrideGroom[0].checked && radioRelation[3].checked) {
+                GenerateSeats(0, 3);
             }
             else if (radioBrideGroom[1].checked && radioRelation[0].checked) {
                 GenerateSeats(1, 0);
@@ -127,8 +155,8 @@
             else if (radioBrideGroom[1].checked && radioRelation[2].checked) {
                 GenerateSeats(1, 2);
             }
-            else {
-                alert('error');
+            else if (radioBrideGroom[1].checked && radioRelation[3].checked) {
+                GenerateSeats(1, 3);
             }
         }
 
@@ -154,7 +182,7 @@
 
         function GenerateSeats(brideGroom, relation) {
             var divContent = document.getElementById("div_content");
-            divContent.innerHTML='';
+            divContent.innerHTML = '';
             var arr = new Array();
             if (brideGroom == 0 && relation == 0)
                 arr = groomRelatives;
@@ -162,6 +190,8 @@
                 arr = groomColleague;
             else if (brideGroom == 0 && relation == 2)
                 arr = groomClassmates;
+            else if (brideGroom == 0 && relation == 3)
+                arr = groomOthers;
             else if (brideGroom == 1 && relation == 0)
                 arr = brideRelative;
             else if (brideGroom == 1 && relation == 1)
@@ -176,6 +206,7 @@
                 divContent.appendChild(newDiv);
                 for (var j = 0; j < arr[i].length; j++) {
                     var newSubDiv = document.createElement("div");
+                    newSubDiv.classList.add('dynamic-div');
                     var newContent = document.createTextNode(arr[i][j]);
                     newSubDiv.appendChild(newContent);
                     newDiv.appendChild(newSubDiv);
@@ -193,14 +224,14 @@
 
 <body>
     <div class="header">
-        <h1>Welcome to our Wedding</h1>
+        <h1>Nicole & Joseph's Wedding Party</h1>
     </div>
 
-    <div class="navbar">
+    <!-- <div class="navbar">
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
-    </div>
+    </div> -->
 
     <div class="content">
         <h2>Welcome to our wedding! 請問您認識？</h2>
@@ -219,10 +250,14 @@
 
         <label for="option2">同學:</label>
         <input type="radio" id="radio_classmate" name="relation" value="bride" onChange="OnSelected();">
-        <p>This webpage is responsive, meaning it adjusts its layout depending on the size of the screen it is viewed
-            on.</p>
-        <p>Try resizing your browser window to see how it works.</p>
 
+        <label for="option2">長輩友人:</label>
+        <input type="radio" id="radio_others" name="relation" value="bride" onChange="OnSelected();">
+        <!-- <p>This webpage is responsive, meaning it adjusts its layout depending on the size of the screen it is viewed
+            on.</p>
+        <p>Try resizing your browser window to see how it works.</p> -->
+        <br />
+        <p></p>
         <div id="div_content" style="display: flex; flex-wrap: wrap; justify-content: center;">
 
 
